@@ -76,6 +76,7 @@
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString]; // appends both parts of the url
     
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString]; // NSURL confirms the string is a valid URL
+    cell.pictureView.image = nil;
     [cell.pictureView setImageWithURL:posterURL];
     
     

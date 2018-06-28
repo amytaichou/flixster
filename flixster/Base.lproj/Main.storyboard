@@ -30,8 +30,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="182.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik0-7n-60U">
-                                                    <rect key="frame" x="15" y="11" width="110" height="157"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik0-7n-60U">
+                                                    <rect key="frame" x="15" y="11" width="110" height="161"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.77303759429999996" green="0.80560329149999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
@@ -52,7 +52,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="pictureView" destination="8kc-mu-9m8" id="PeO-8R-ybV"/>
+                                            <outlet property="pictureView" destination="Ik0-7n-60U" id="RXV-ou-oal"/>
                                             <outlet property="synopsisLabel" destination="xyz-T0-5dC" id="Gs5-Iz-WCL"/>
                                             <outlet property="titleLabel" destination="FHJ-XO-Nzj" id="dvl-04-MRt"/>
                                         </connections>
