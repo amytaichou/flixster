@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MoviesViewController.h
 //  flixster
 //
 //  Created by Amy Liu on 6/28/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MoviesViewController : UIViewController
 
 @end
-
