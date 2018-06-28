@@ -33,9 +33,9 @@
     [self.poster setImageWithURL:posterURL];
     
     NSString *backdropURLString = self.movie[@"backdrop_path"];
-    NSString *fullBackdropURLString = [baseURLString stringByAppendingString:posterURLString]; // appends both parts of the url
+    NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString]; // appends both parts of the url
     
-    NSURL *backdropURL = [NSURL URLWithString:fullPosterURLString]; // NSURL confirms the string is a valid URL
+    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString]; // NSURL confirms the string is a valid URL
     
     [self.bannerView setImageWithURL:backdropURL];
     
