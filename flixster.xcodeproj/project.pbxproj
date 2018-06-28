@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC271D2420E55D0C009FB6D9 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC271D2320E55D0C009FB6D9 /* MoviesViewController.m */; };
+		CC271D2720E57877009FB6D9 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC271D2620E57877009FB6D9 /* MovieCell.m */; };
 		CC7FAA6320E553A30073452D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7FAA6220E553A30073452D /* AppDelegate.m */; };
 		CC7FAA6920E553A30073452D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7FAA6720E553A30073452D /* Main.storyboard */; };
 		CC7FAA6B20E553A30073452D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC7FAA6A20E553A30073452D /* Assets.xcassets */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		CC271D2220E55D0C009FB6D9 /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		CC271D2320E55D0C009FB6D9 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		CC271D2520E57877009FB6D9 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		CC271D2620E57877009FB6D9 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		CC7FAA5E20E553A30073452D /* flixster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flixster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7FAA6120E553A30073452D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC7FAA6220E553A30073452D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				CC7FAA6220E553A30073452D /* AppDelegate.m */,
 				CC7FAA6720E553A30073452D /* Main.storyboard */,
 				CC7FAA6A20E553A30073452D /* Assets.xcassets */,
+				CC271D2520E57877009FB6D9 /* MovieCell.h */,
+				CC271D2620E57877009FB6D9 /* MovieCell.m */,
 				CC7FAA6C20E553A30073452D /* LaunchScreen.storyboard */,
 				CC7FAA6F20E553A30073452D /* Info.plist */,
 				CC271D2220E55D0C009FB6D9 /* MoviesViewController.h */,
@@ -264,6 +269,7 @@
 			files = (
 				CC271D2420E55D0C009FB6D9 /* MoviesViewController.m in Sources */,
 				CC7FAA7120E553A40073452D /* main.m in Sources */,
+				CC271D2720E57877009FB6D9 /* MovieCell.m in Sources */,
 				CC7FAA6320E553A30073452D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
