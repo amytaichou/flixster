@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activitiesIndicator;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -30,6 +31,10 @@
     
     // Start the activity indicator
     [self.activitiesIndicator startAnimating];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:self.refreshControl atIndex:0]; // prevents load sign from being hidden behind object
     
     [self fetchMovies];
     
@@ -66,7 +71,7 @@
             self.movies = dataDictionary[@"results"];
             [self.collectionView reloadData];
         }
-         
+         [self.refreshControl endRefreshing];
         }];
     [task resume];
 }

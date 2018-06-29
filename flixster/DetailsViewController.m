@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieTitle;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *movieSynopsis;
+@property (weak, nonatomic) IBOutlet UILabel *rating;
 
 @end
 
@@ -37,10 +38,17 @@
     
     NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString]; // NSURL confirms the string is a valid URL
     
+   /*  NSString *ratingURL = self.movie[@"vote_average"];
+    NSString *fullRating = [baseURLString stringByAppendingString:ratingURL]; // appends both parts of the url
+    
+    NSURL *fullRatingURL = [NSURL URLWithString:fullRating]; // NSURL confirms the string is a valid URL */
+    
     [self.bannerView setImageWithURL:backdropURL];
     
     self.movieTitle.text = self.movie[@"title"];
     self.movieSynopsis.text = self.movie[@"overview"];
+    NSString *ratingLabel = @"Rating: ";
+    self.rating.text = ratingLabel; // [ratingLabel stringByAppendingString:self.movie[@"vote_average"]];
     [self.movieSynopsis sizeToFit];
     
     
