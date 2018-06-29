@@ -6,6 +6,9 @@
 //  Copyright © 2018 Amy Liu. All rights reserved.
 //
 
+
+// implement searchbar for collection, fix coloring issue, add ratings, debug no connection popup, find loading indicator
+
 #import "MoviesViewController.h"
 #import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
@@ -68,9 +71,8 @@
                 // optional code for what happens after the alert controller has finished presenting
             }];
             
-             self.filteredData = self.movies;
-            
-            NSLog(@"%@", [error localizedDescription]);
+            self.filteredData = self.movies;
+        
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -78,6 +80,9 @@
             // NSLog(@"%@", dataDictionary);
             
             self.movies = dataDictionary[@"results"];
+            
+            self.filteredData = self.movies;
+            
             for (NSDictionary *movie in self.movies) {
                 NSLog(@"%@", movie[@"title"]);
             }
@@ -106,23 +111,56 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredData.count;
 } // how many cells do ya got buddy
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredData[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
+    
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString]; // appends both parts of the url
     
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString]; // NSURL confirms the string is a valid URL
     cell.pictureView.image = nil;
-    [cell.pictureView setImageWithURL:posterURL];
+    // [cell.pictureView setImageWithURL:posterURL];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:posterURL];
+    
+    __weak MovieCell *weakSelf = cell;
+    [cell.pictureView setImageWithURLRequest:request placeholderImage:nil
+                                    success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+                                        
+                                        // imageResponse will be nil if the image is cached
+                                        if (imageResponse) {
+                                            NSLog(@"Image was NOT cached, fade in image");
+                                            weakSelf.pictureView.alpha = 0.0;
+                                            weakSelf.pictureView.image = image;
+                                            weakSelf.titleLabel.alpha = 0.0;
+                                            weakSelf.synopsisLabel.alpha = 0.0;
+                                            // weakSelf.titleLabel.text = text;
+                                            // weakSelf.synopsisLabel.text = text;
+                                            
+                                            //Animate UIImageView back to alpha 1 over 0.3sec
+                                            [UIView animateWithDuration:0.3 animations:^{
+                                                weakSelf.pictureView.alpha = 1.0;
+                                                weakSelf.titleLabel.alpha = 1.0;
+                                                weakSelf.synopsisLabel.alpha = 1.0;
+                                            }];
+                                        }
+                                        else {
+                                            NSLog(@"Image was cached so just update the image");
+                                            weakSelf.pictureView.image = image;
+                                        }
+                                    }
+                                    failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+                                        // do something for the failure condition
+                                    }];
     
     return cell; // what do you want in yo cell buddy
 }
@@ -137,8 +175,6 @@
         }];
         
         self.filteredData = [self.movies filteredArrayUsingPredicate:searchPredicate];
-    
-        NSLog(@"%@", self.filteredData);
         
     }
     else {
@@ -149,6 +185,18 @@
     
 }
 
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+}
+//5
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -157,7 +205,7 @@
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredData[indexPath.row];
     
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
