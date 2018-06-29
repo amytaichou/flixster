@@ -71,7 +71,9 @@
             // TODO: Store the movies in a property to use elsewhere
             // TODO: Reload your table view data
         }
+        
         [self.refreshControl endRefreshing];
+   
     }];
     [task resume];
 }
@@ -88,8 +90,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
-    // [[UITableViewCell alloc] init]; // alloc creates object
-    // NSLog(@"%@", [NSString stringWithFormat:@"row: %d, section %d", indexPath.row, indexPath.section]);
     
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
@@ -101,8 +101,6 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString]; // NSURL confirms the string is a valid URL
     cell.pictureView.image = nil;
     [cell.pictureView setImageWithURL:posterURL];
-    
-    // [cell.synopsisLabel sizeToFit];
     
     return cell; // what do you want in yo cell buddy
 }
