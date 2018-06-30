@@ -2,7 +2,7 @@
 
 **Flixster** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **11** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
@@ -15,13 +15,13 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 
-- [ ] User sees an error message when there's a networking error.
+- [x] User sees an error message when there's a networking error.
 - [x] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
-- [ ] All images fade in as they are loading.
+- [x] User can search for a movie.
+- [x] All images fade in as they are loading.
 - [ ] User can view the large movie poster by tapping on a cell.
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the selection effect of the cell.
+- [x] Customize the selection effect of the cell.
 - [x] Customize the navigation bar.
 - [x] Customize the UI.
 
@@ -31,20 +31,22 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Overall I'd just like to discuss how to make my code more efficient and prevent repeat code (ie. copying blocks of animation code every time I want to animate multiple items).
+2. More design ideas to make it more visually pleasing and efficient.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/2job6el.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+I struggled with keeping track of what I named every item and the class heirarchies. I'm also adjusting to figuring out where each line of provided code goes as I'm trying to understand what each piece of code does. Often times I added an extra line of code that broke my app. I'm also still figuring out how Xcode works (changing background colors, viewing layers, using the debug function, etc). 
 
 ## Credits
 
