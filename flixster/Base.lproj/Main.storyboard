@@ -25,7 +25,7 @@
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="sy2-az-0gT">
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search" id="sy2-az-0gT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -142,6 +142,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="CyM-qK-wkN">
+                                    <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="UKO-Sf-ndJ" customClass="MovieCollectionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="107" height="168"/>
@@ -171,6 +175,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Now Playing" id="4NE-ZZ-7Vx"/>
                     <connections>
+                        <outlet property="activitiesIndicator" destination="CyM-qK-wkN" id="l7M-vJ-BJu"/>
                         <outlet property="collectionView" destination="1Kt-Qo-UX9" id="AtG-Zq-F6o"/>
                     </connections>
                 </viewController>
